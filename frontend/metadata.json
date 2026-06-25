@@ -1,0 +1,6 @@
+{
+  "name": "Vue E-Commerce Shop",
+  "description": "A feature-rich, high-fidelity e-commerce application built with Vue 3, Pinia, Vue Router, and Tailwind CSS. Implements product browsing, categories, cart management, favorites, and detailed order history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
