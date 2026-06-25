@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -56,17 +57,17 @@ Route::prefix('admin')
         |-------------------------
         */
 
-        // Category bulk delete
         Route::delete('categories/bulk-delete', [CategoryController::class, 'bulkDelete'])
             ->name('categories.bulkDelete');
 
-        // Product bulk delete
         Route::delete('products/bulk-delete', [ProductController::class, 'bulkDelete'])
             ->name('products.bulkDelete');
 
-        // User bulk delete (NEW)
         Route::delete('users/bulk-delete', [UserController::class, 'bulkDelete'])
             ->name('users.bulkDelete');
+
+        Route::delete('orders/bulk-delete', [OrderController::class, 'bulkDelete'])
+            ->name('orders.bulkDelete');
 
         /*
         |-------------------------
@@ -80,7 +81,10 @@ Route::prefix('admin')
         Route::resource('products', ProductController::class)
             ->except(['show']);
 
-        // USERS RESOURCE (NEW)
         Route::resource('users', UserController::class)
             ->except(['show']);
+
+        // Orders
+        Route::resource('orders', OrderController::class)
+            ->only(['index', 'show', 'destroy']);
     });
